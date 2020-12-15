@@ -23,7 +23,7 @@ class Picker {
      *
      * @param {string} value The value that needs to be selected
      */
-    static selectValue (value) {
+    static selectValue (value: string) {
         this.waitForIsShown(true);
         if (driver.isIOS) {
             this._setIosValue(value);
@@ -40,7 +40,7 @@ class Picker {
      *
      * @private
      */
-    static _setAndroidValue (value) {
+    static _setAndroidValue (value: string) {
         $(`${SELECTORS.ANDROID_LISTVIEW}/*[@text='${value}']`).click();
     }
 
@@ -51,7 +51,7 @@ class Picker {
      *
      * @private
      */
-    static _setIosValue (value) {
+    static _setIosValue (value: string) {
         $(SELECTORS.IOS_PICKERWHEEL).addValue(value);
         $(SELECTORS.DONE).click();
     }

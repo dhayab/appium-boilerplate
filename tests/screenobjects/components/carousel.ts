@@ -1,5 +1,5 @@
-import Gestures from '../../helpers/Gestures';
 import { DEFAULT_TIMEOUT } from '../../constants';
+import Gestures from '../../helpers/Gestures';
 import { getTextOfElement } from '../../helpers/utils';
 
 const SELECTORS = {
@@ -7,7 +7,7 @@ const SELECTORS = {
     CARD: '~card',
 };
 
-let CAROUSEL_RECTANGLES;
+let CAROUSEL_RECTANGLES: WebDriver.RectReturn;
 
 class Carousel extends Gestures {
     /**
@@ -39,7 +39,7 @@ class Carousel extends Gestures {
      *                 like for example 'active'
      * @param {string} partialText
      */
-    verifyNthCardContainsText (nthCard, partialText) {
+    verifyNthCardContainsText (nthCard: string, partialText: string) {
         this.waitForIsDisplayed();
 
         const cards = $$(SELECTORS.CARD);

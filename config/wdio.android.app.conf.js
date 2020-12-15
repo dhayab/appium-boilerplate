@@ -5,7 +5,7 @@ const { config } = require('./wdio.shared.conf');
 // Specs
 // ============
 config.specs = [
-    './tests/specs/**/app*.spec.js',
+    './tests/specs/**/app*.spec.ts',
 ];
 
 // ============
@@ -21,8 +21,8 @@ config.capabilities = [
         // For W3C the appium capabilities need to have an extension prefix
         // http://appium.io/docs/en/writing-running-appium/caps/
         // This is `appium:` for all Appium Capabilities which can be found here
-        'appium:deviceName': 'Pixel_8.1',
-        'appium:platformVersion': '8.1',
+        'appium:deviceName': 'Pixel_3a_API_30_x86',
+        'appium:platformVersion': '11',
         'appium:orientation': 'PORTRAIT',
         // `automationName` will be mandatory, see
         // https://github.com/appium/appium/releases/tag/v1.13.0

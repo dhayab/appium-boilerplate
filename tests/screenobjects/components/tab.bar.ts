@@ -19,7 +19,7 @@ export default class TabBar {
         $('~Swipe').click();
     }
 
-    static waitForTabBarShown () {
+    static waitForTabBarShown (_val: boolean) {
         $('~Home').waitForDisplayed({
             timeout: 20000,
         });

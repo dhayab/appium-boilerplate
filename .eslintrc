@@ -1,9 +1,10 @@
 {
   "extends": [
     "standard",
-    "plugin:wdio/recommended"
+    "plugin:wdio/recommended",
+    "plugin:@typescript-eslint/recommended"
   ],
-  "parser": "babel-eslint",
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 2016,
     "sourceType": "module"
@@ -20,7 +21,10 @@
     "comma-dangle": [
       "error",
       "only-multiline"
-    ]
+    ],
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }]
   },
   "globals": {
     "$": true,
@@ -30,7 +34,8 @@
   },
   "plugins": [
     "wdio",
-    "import"
+    "import",
+    "@typescript-eslint"
   ],
   "env": {
     "jasmine": true

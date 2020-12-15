@@ -23,7 +23,7 @@ class WebView {
                 const currentContexts = this.getCurrentContexts();
 
                 return currentContexts.length > 1 &&
-                    currentContexts.find(context => context.toLowerCase().includes(CONTEXT_REF.WEBVIEW));
+                    !!currentContexts.find(context => context.toLowerCase().includes(CONTEXT_REF.WEBVIEW)) || false;
             }, {
                 timeout: 10000,
                 timeoutMsg: 'Webview context not loaded',
@@ -37,7 +37,7 @@ class WebView {
      *
      * @param {string} context should be native of webview
      */
-    switchToContext (context) {
+    switchToContext (context: string) {
         driver.switchContext(this.getCurrentContexts()[context === CONTEXT_REF.WEBVIEW ? 1 : 0]);
     }
 

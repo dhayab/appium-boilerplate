@@ -1,9 +1,9 @@
+import { timeDifference } from '../helpers/utils';
 import TabBar from '../screenobjects/components/tab.bar';
 import WebViewScreen from '../screenobjects/webview.screen';
-import { timeDifference } from '../helpers/utils';
 
 describe('WebdriverIO and Appium', () => {
-    let start;
+    let start: number;
     beforeEach(() => {
         browser.reset();
         TabBar.waitForTabBarShown(true);

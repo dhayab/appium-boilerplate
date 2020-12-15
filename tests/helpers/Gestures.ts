@@ -1,4 +1,9 @@
-let SCREEN_SIZE;
+type Coords = {
+    x: number,
+    y: number,
+};
+
+let SCREEN_SIZE: WebDriver.RectReturn;
 /**
  * The values in the below object are percentages of the screen
  */
@@ -30,7 +35,7 @@ class Gestures {
      * @param {number} maxScrolls
      * @param {number} amount
      */
-    static checkIfDisplayedWithScrollDown (element, maxScrolls, amount = 0) {
+    static checkIfDisplayedWithScrollDown (element: WebdriverIO.Element, maxScrolls: number, amount = 0) {
         if ((!element.isExisting() || !element.isDisplayed()) && amount <= maxScrolls) {
             this.swipeUp(0.85);
             this.checkIfDisplayedWithScrollDown(element, maxScrolls, amount + 1);
@@ -101,7 +106,7 @@ class Gestures {
      *   const to = { x: 25, y:50 }
      * </pre>
      */
-    static swipeOnPercentage (from, to) {
+    static swipeOnPercentage (from: Coords, to: Coords) {
         SCREEN_SIZE = SCREEN_SIZE || driver.getWindowRect();
         const pressOptions = this._getDeviceScreenCoordinates(SCREEN_SIZE, from);
         const moveToScreenCoordinates = this._getDeviceScreenCoordinates(SCREEN_SIZE, to);
@@ -124,7 +129,7 @@ class Gestures {
      *   const to = { x: 25, y:50 }
      * </pre>
      */
-    static swipe (from, to) {
+    static swipe (from: Coords, to: Coords) {
         driver.touchPerform([{
             action: 'press',
             options: from,
@@ -150,7 +155,7 @@ class Gestures {
      *
      * @private
      */
-    static _getDeviceScreenCoordinates (screenSize, coordinates) {
+    static _getDeviceScreenCoordinates (screenSize: WebDriver.RectReturn, coordinates: Coords) {
         return {
             x: Math.round(screenSize.width * (coordinates.x / 100)),
             y: Math.round(screenSize.height * (coordinates.y / 100)),
@@ -167,7 +172,7 @@ class Gestures {
      *
      * @private
      */
-    static _calculateXY ({ x, y }, percentage) {
+    static _calculateXY ({ x, y }: Coords, percentage: number) {
         return {
             x: x * percentage,
             y: y * percentage,

@@ -24,8 +24,7 @@ describe('WebdriverIO and Appium, when interacting with a login form,', () => {
         LoginScreen.alert.waitForIsShown(false);
     });
 
-    // Try to implement this yourself
     xit('should be able sign up successfully', () => {
-
+        // Try to implement this yourself
     });
 });

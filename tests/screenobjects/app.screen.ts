@@ -1,7 +1,9 @@
 import { DEFAULT_TIMEOUT } from '../constants';
 
 export default class AppScreen {
-    constructor (selector) {
+    private selector: string;
+
+    constructor (selector: string) {
         this.selector = selector;
     }
 

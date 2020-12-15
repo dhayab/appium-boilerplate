@@ -33,7 +33,7 @@ class NativeAlert {
      *
      * @param {string} selector
      */
-    static pressButton (selector) {
+    static pressButton (selector: string) {
         const buttonSelector = driver.isAndroid
             ? SELECTORS.ANDROID.ALERT_BUTTON.replace(/{BUTTON_TEXT}/, selector.toUpperCase())
             : `~${selector}`;
