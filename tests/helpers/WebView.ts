@@ -22,8 +22,10 @@ class WebView {
             () => {
                 const currentContexts = this.getCurrentContexts();
 
-                return currentContexts.length > 1 &&
-                    !!currentContexts.find(context => context.toLowerCase().includes(CONTEXT_REF.WEBVIEW)) || false;
+                return currentContexts.length > 1
+                    ? !!currentContexts.find(context => context.toLowerCase().includes(CONTEXT_REF.WEBVIEW))
+                    : false
+                ;
             }, {
                 timeout: 10000,
                 timeoutMsg: 'Webview context not loaded',
